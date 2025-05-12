@@ -1,0 +1,42 @@
+<%- include('../../partials/headerAdmin') %>
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h1 class="mb-4">Manage Volunteers</h1>
+
+    <!-- Volunteers Table -->
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Program</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% recentVolunteers.forEach(function(volunteer) { %>
+          <tr>
+            <td><%= volunteer.firstName %> <%= volunteer.lastName %></td>
+            <td><%= volunteer.city %></td>
+            <td><%= volunteer.phone %></td>
+            <td><%= volunteer.email || 'N/A' %></td>
+            <td><%= volunteer.programs.join(', ') %></td>
+            <td><%= volunteer.status %></td>
+            <td>
+              <a href="/admin/download-volunteer/<%= volunteer._id %>" class="btn btn-primary btn-sm">
+                <i class="bi bi-download"></i> Download PDF
+              </a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <!-- Back to Dashboard Button -->
+    <a href="/admin/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+  </div>
+
+<%- include('../../partials/footerAdmin') %>

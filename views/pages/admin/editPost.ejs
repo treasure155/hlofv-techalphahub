@@ -1,0 +1,53 @@
+<%- include('../../partials/headerAdmin') %>
+ <!-- Main Content -->
+<div class="main-content container my-5">
+  <h2>Edit Blog Post</h2>
+  <form action="/admin/edit-post/<%= blog._id %>" method="POST" enctype="multipart/form-data">
+    
+    <!-- Title -->
+    <div class="mb-3">
+      <label>Title</label>
+      <input type="text" name="title" class="form-control" value="<%= blog.title %>" required>
+    </div>
+
+    <!-- Excerpt -->
+    <div class="mb-3">
+      <label>Excerpt</label>
+      <textarea name="excerpt" rows="3" class="form-control" required><%= blog.excerpt %></textarea>
+    </div>
+
+    <!-- Tags -->
+    <div class="mb-3">
+      <label>Tags (comma-separated)</label>
+      <input type="text" name="tags" class="form-control" value="<%= blog.tags.join(', ') %>" placeholder="e.g., technology, education, programming">
+    </div>
+
+    <!-- Current Image -->
+    <div class="mb-3">
+      <label>Current Image</label><br>
+      <% if (blog.image) { %>
+        <img src="/uploads/blogs/<%= blog.image %>" alt="Current Image" class="img-thumbnail" style="max-width: 200px;">
+      <% } else { %>
+        <p>No image uploaded.</p>
+      <% } %>
+    </div>
+
+    <!-- Change Image (optional) -->
+    <div class="mb-3">
+      <label>Change Image (optional)</label>
+      <input type="file" name="image" class="form-control" accept="image/*">
+      <small class="text-muted">Leave empty to keep the current image.</small>
+    </div>
+
+    <!-- Body -->
+    <div class="mb-3">
+      <label>Content</label>
+      <textarea name="body" rows="6" class="form-control" required><%= blog.body %></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Update</button>
+  </form>
+</div>
+
+<%- include('../../partials/footerAdmin') %>

@@ -1,0 +1,46 @@
+<%- include('../../partials/headerAdmin') %>
+
+
+<!-- Main Content -->
+<div class="main-content container create-post-page">
+  <h2 class="mb-4 create-post-title">Create New Blog Post</h2>
+
+  <form action="/admin/create-post" method="POST" enctype="multipart/form-data">
+    <!-- Title -->
+    <div class="mb-4">
+      <label for="title" class="form-label create-post-label">Title</label>
+      <input type="text" name="title" id="title" class="form-control create-post-input" required>
+    </div>
+
+    <!-- Excerpt -->
+    <div class="mb-4">
+      <label for="excerpt" class="form-label create-post-label">Excerpt</label>
+      <textarea name="excerpt" id="excerpt" rows="3" class="form-control create-post-input" placeholder="Short summary..." required></textarea>
+    </div>
+
+    <!-- Tags -->
+    <div class="mb-4">
+      <label for="tags" class="form-label create-post-label">Tags (comma-separated)</label>
+      <input type="text" name="tags" id="tags" class="form-control create-post-input" placeholder="e.g., technology, education, programming">
+    </div>
+
+    <!-- Image -->
+    <div class="mb-4">
+      <label for="image" class="form-label create-post-label">Upload Image</label>
+      <input type="file" name="image" id="image" class="form-control" accept="image/*" required>
+    </div>
+
+    <!-- Body -->
+    <div class="mb-4">
+      <label for="body" class="form-label create-post-label">Content</label>
+      <textarea name="body" id="body" rows="8" class="form-control create-post-input" required></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" class="btn btn-success create-post-submit">
+      <i class="bi bi-upload"></i> Publish
+    </button>
+  </form>
+</div>
+
+<%- include('../../partials/footerAdmin') %>
