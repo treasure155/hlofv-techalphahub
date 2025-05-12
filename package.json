@@ -1,14 +1,19 @@
 {
   "name": "hlofv-website",
   "version": "1.0.0",
+  "description": "Honourable Ladies of Value Foundation official website",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nodejs", "express", "ejs", "mongo", "ngo", "hlofv"],
+  "author": "Treasure Idem",
   "license": "ISC",
-  "description": "",
+  "engines": {
+    "node": ">=18.x"
+  },
   "dependencies": {
     "body-parser": "^2.2.0",
     "connect-mongo": "^5.1.0",
